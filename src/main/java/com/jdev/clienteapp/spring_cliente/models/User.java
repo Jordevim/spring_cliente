@@ -1,6 +1,16 @@
 package com.jdev.clienteapp.spring_cliente.models;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "usuarios")
 public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    
 
     private String nombre;
     private String apellido;
@@ -92,7 +102,13 @@ public class User {
         this.edad = edad;
     }
 
-        
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }    
     
 
 
