@@ -7,7 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jdev.clienteapp.spring_cliente.models.User;
-import com.jdev.clienteapp.spring_cliente.repository.UserRepository;
+//* import com.jdev.clienteapp.spring_cliente.repository.UserRepository;
+import com.jdev.clienteapp.spring_cliente.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -17,19 +18,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Controller {
 
     @Autowired
-    private UserRepository userRepository;
+    //* private UserRepository userRepository;
+    private UserService userService;
 
     @PostMapping
     public User createUser(@RequestBody User user) {
 
-        User savedUser = userRepository.save(user);
+        //* User savedUser = userRepository.save(user);
 
-        System.out.println("Usuario guardado: " + savedUser.getNombre() + " " + savedUser.getApellido());
+        //* System.out.println("Usuario guardado: " + savedUser.getNombre() + " " + savedUser.getApellido());
         //* System.out.println("Ciudad: " + user.getCiudad());
         //* System.out.println("Departamento: " + user.getDepartamento());
         //* System.out.println("Edad: " + user.getEdad());
         //* return user;
-        return savedUser;
+        //return savedUser;
+        return userService.saveUser(user);
     }
 
 }
